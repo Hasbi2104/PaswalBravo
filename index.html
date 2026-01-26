@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- CSS DASAR & VARIABEL --- */
-         :root {
+        :root {
             --bg-dark: #00122e;
             --card-bg: #02144a;
             --primary-blue: #003d76;
@@ -169,7 +169,7 @@
         .btn-cyan { background: var(--secondary-blue); color: #00122e; box-shadow: 0 10px 20px rgba(0, 198, 255, 0.3); }
         .btn-cyan:hover { background: #fff; transform: translateY(-3px); }
 
-        /* --- SCROLLABLE AREA (Proker & Members) --- */
+        /* --- SCROLLABLE AREA --- */
         .scroll-content {
             width: 100%;
             max-height: 75vh;
@@ -208,16 +208,30 @@
         .proker-img-wrapper { width: 100%; height: 160px; overflow: hidden; }
         .proker-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- MEMBER SPECIFIC --- */
-        .member-img-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 20px auto 10px;
-            border: 3px solid var(--primary-blue);
+        /* --- MEMBER SPECIFIC (Tampilan Kotak Baru) --- */
+        .member-img-box {
+            width: 100%;
+            height: 220px;
             overflow: hidden;
+            border-bottom: 2px solid var(--primary-blue);
         }
-        .member-img-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .member-img-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: 0.5s;
+        }
+        .proker-card:hover .member-img-box img { transform: scale(1.1); }
+
+        .social-link {
+            color: var(--secondary-blue);
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        .social-link:hover { color: #fff; transform: scale(1.2); }
 
         .vision-mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
@@ -265,27 +279,17 @@
                 </h2>
                 <div class="info-card" style="text-align: center; margin-bottom: 30px;">
                     <p style="color: var(--text-gray); line-height: 1.6;">
-                        Pasukan Pengawal disingkat Paswal berfungsi melayani
-Danpro 
-dalam menjalankan 
-fungsi 
-bidang
-pengamanan dan penegakan aturan yang meliputi
-pengamanan fisik, keajudanan, Upacara Kehormatan,
-paskibra, pataka dan Penegakan aturan kode etik unit
+                        Pasukan Pengawal disingkat Paswal berfungsi melayani Danpro dalam menjalankan fungsi bidang pengamanan dan penegakan aturan yang meliputi pengamanan fisik, keajudanan, Upacara Kehormatan, paskibra, pataka dan Penegakan aturan kode etik unit.
+                    </p>
                 </div>
                 <div class="vision-mission-grid">
                     <div class="info-card" style="text-align: center;">
                         <h3 style="color: var(--secondary-blue); margin-bottom: 10px;"><i class="fas fa-lightbulb"></i> Visi</h3>
-                        <p style="font-size: 0.9rem;">Menjadi Bidang yang menegakan Kedisiplinan dengan 
-mengacu pada PERDASPRO .</p>
+                        <p style="font-size: 0.9rem;">Menjadi Bidang yang menegakan Kedisiplinan dengan mengacu pada PERDASPRO .</p>
                     </div>
                     <div class="info-card" style="text-align: center;">
                         <h3 style="color: var(--secondary-blue); margin-bottom: 10px;"><i class="fas fa-rocket"></i> Misi</h3>
-                        <p style="font-size: 0.9rem;">Pendoktrinan PERDASPRO terhadap Anggota dan
-calon anggota KPP. Pengamanan dan pembinaan fisik,
-keajudanan, Upacara Kehormatan, paskibra, pataka,
-dan penegakkan aturan kode etik unit.</p>
+                        <p style="font-size: 0.9rem;">Pendoktrinan PERDASPRO terhadap Anggota dan calon anggota KPP. Pengamanan dan pembinaan fisik, keajudanan, Upacara Kehormatan, paskibra, pataka, dan penegakkan aturan kode etik unit.</p>
                     </div>
                 </div>
             </div>
@@ -313,31 +317,36 @@ dan penegakkan aturan kode etik unit.</p>
 
     </div>
 
-   <script>
-       // --- DATA PROGRAM KERJA ---
-        // Ganti teks di dalam i: "..." dengan nama file foto Anda (contoh: "apel.jpg")
+    <script>
+        // --- DATA PROGRAM KERJA ---
         const prokerData = [
-            { t: "Pengkajian Ulang Buku Pedoman Paswal", d: "Buku pedoman ini dibuat sebagai acuan untuk mendapatkan informasi dan petunjuk dalam melakukan suatu kegiatan.", i: "Screenshot 2026-01-22 122246.png" },
-            { t: "Apel Hari Kedinasan", d: "Dilakukan 1 Bulan sekali, bertujuan untuk Promosi dan Branding KPP sekaligus ajang silaturahmi.", i: "10 Maret 2025 (1).jpg" },
-            { t: "Apel Besar", d: "Apel Menjelang Kegiatan Besar, yang mana diikuti oleh semua unsur yang ada di KPP.", i: "4x/Artboard 1@4x.png" },
-            { t: "Pelaksanaan TOT AKRPO", d: "Bertujuan menanamkan kembali aturan dasar PERDASPRO dan cara memberi instruksi di depan Siswa.", i: "WhatsApp Image 2025-02-06 at 15.22.34.jpeg" },
-            { t: "TOT PO Penugasan Upacara Paswal", d: "Pembekalan kepada pelatih petugas upacara (Pj PBB) dan pemahaman SOP pengibaran bendera.", i: "4x/Artboard 1@4x.png" },
-            { t: "Pendoktrinan PERDASPRO", d: "Penerapan kode etik: Doktrin Spiritual, Penghormatan, Seragam Protokoler, dan PBB.", i: "IMG-20250212-WA0060.jpg" },
-           { t: "Asisten Keajudanan", d: "Mendampingi, membantu, mendukung kelancaran kegiatan seorang Danpro serta Ketua Dewan Racana.", i: "Screenshot 2026-01-22 152134.png" },
-            { t: "Sharing Session Keajudanan", d: "Pembekalan staff Pasukan Pengawal melalui seminar atau webinar dengan tokoh ajudan handal.", i: "WhatsApp Image 2025-09-04 at 00.31.04_19094f01.jpg" },
-            { t: "My Pro Games", d: "Ajang silaturahmi kpm/kpp sejawa barat dan untuk meningkatkan kebugaran jasmani.", i: "Screenshot 2026-01-22 125702.png" },
-            { t: "Jajar Kehormatan", d: "Pasukan penyambutan wisuda, tamu undangan, pernikahan, dan latihan khusus Pedang Pora.", i: "jajar kehormatan teh elsa (29 des).jpg" },
-            { t: "BinjasPro", d: "Bina jasmani meliputi: Lari, cabang olahraga (volli, futsal, dll), dan Tracking mountain.", i: "Screenshot 2026-01-22 130442.png" },
-            { t: "Pemeliharaan Barang PASWAL", d: "Pemeliharaan rutin sebulan sekali dan setiap selesai penugasan.", i: "4x/Artboard 1@4x.png" },
-            { t: "Pengenalan UNIT", d: "Pengenalan Unit akan dilaksanakan pada Penerimaan Masa Tamu (PMT) 2025.", i: "DSC03472.JPG.jpeg" }
+            { t: "Pengkajian Ulang Buku Pedoman Paswal", d: "Buku pedoman ini dibuat sebagai acuan.", i: "Screenshot 2026-01-22 122246.png" },
+            { t: "Apel Hari Kedinasan", d: "Dilakukan 1 Bulan sekali.", i: "10 Maret 2025 (1).jpg" },
+            { t: "Apel Besar", d: "Diikuti oleh semua unsur di KPP.", i: "4x/Artboard 1@4x.png" },
+            { t: "Pelaksanaan TOT AKRPO", d: "Menanamkan kembali aturan dasar PERDASPRO.", i: "WhatsApp Image 2025-02-06 at 15.22.34.jpeg" },
+            { t: "TOT PO Penugasan Upacara", d: "Pembekalan pelatih petugas upacara.", i: "4x/Artboard 1@4x.png" },
+            { t: "Pendoktrinan PERDASPRO", d: "Penerapan kode etik & PBB.", i: "IMG-20250212-WA0060.jpg" },
+            { t: "Asisten Keajudanan", d: "Mendampingi Danpro.", i: "Screenshot 2026-01-22 152134.png" },
+            { t: "Sharing Session", d: "Seminar dengan tokoh ajudan handal.", i: "WhatsApp Image 2025-09-04 at 00.31.04_19094f01.jpg" },
+            { t: "My Pro Games", d: "Ajang silaturahmi kpm/kpp sejawa barat.", i: "Screenshot 2026-01-22 125702.png" },
+            { t: "Jajar Kehormatan", d: "Pasukan penyambutan wisuda & tamu.", i: "jajar kehormatan teh elsa (29 des).jpg" },
+            { t: "BinjasPro", d: "Bina jasmani lari & olahraga.", i: "Screenshot 2026-01-22 130442.png" },
+            { t: "Pemeliharaan Barang", d: "Pemeliharaan rutin rutin.", i: "4x/Artboard 1@4x.png" },
+            { t: "Pengenalan UNIT", d: "Dilaksanakan pada PMT 2025.", i: "DSC03472.JPG.jpeg" }
         ];
- // --- DATA ANGGOTA ---
+
+        // --- DATA ANGGOTA (7 Orang) ---
+        // Kamu bisa ganti link 'ig' dengan username masing-masing
         const memberData = [
-           { n: "Pro Alpha Hasbi Nurwahid Ash Shiddieqy-SGD", r: "Komandan Paswal", p: "IMG_0681.JPG" },
-            { n: "Member 2", r: "Creative Designer", p: "https://i.pravatar.cc/150?u=2" },
-            { n: "Member 3", r: "Tech Lead", p: "https://i.pravatar.cc/150?u=3" },
-            { n: "Member 4", r: "Secretary", p: "https://i.pravatar.cc/150?u=4" }
+            { n: "PRO.Alpha Hasbi Nurwahid Ash Shiddieqy-SGD", r: "Komandan Paswal", p: "IMG_0681.JPG", ig: "https://www.instagram.com/_hasbinurwahid/" },
+            { n: "PRO.Alpha Salma Sulha", r: "Wakil Komandan Paswal", p: "19. SHULHA@3x.png", ig: "https://www.instagram.com/salmash__/" },
+            { n: "PRO.Alpha Ajmil Bilya Mukhlis", r: "Wakil Komandan Paswal", p: "12 AJMIL@3x.png", ig: "https://www.instagram.com/ajmil.bilya/" },
+            { n: "PRO.Beta Muhammad Syauqi-SGD", r: "Anggota Paswal", p: "1000343759.jpg.jpeg", ig: "https://www.instagram.com/sya.uqiii_/" },
+            { n: "PRO.Beta Ghefira Nastainu-PKW", r: "Anggota Paswal", p: "IMG_7690.JPG.jpeg", ig: "https://www.instagram.com/ghefiranast/" },
+            { n: "PRO.Beta Iman", r: "Anggota Paswal", p: "IMG_5611.JPG.jpeg", ig: "https://www.instagram.com/mhmdsbtlimn/" },
+            { n: "PRO.Beta Nadya Putri Siti Fadillah-PKW", r: "Anggota Paswal", p: "Screenshot 2026-01-26 095740.png", ig: "https://www.instagram.com/nadyaaapsf/" }
         ];
+
         // Render Proker
         const proContainer = document.getElementById('prokerContainer');
         prokerData.forEach(p => {
@@ -351,15 +360,18 @@ dan penegakkan aturan kode etik unit.</p>
                 </div>`;
         });
 
-        // Render Anggota
+        // Render Anggota (Mode Kotak)
         const memContainer = document.getElementById('memberContainer');
         memberData.forEach(m => {
             memContainer.innerHTML += `
                 <div class="proker-card" style="text-align: center;">
-                    <div class="member-img-circle"><img src="${m.p}" alt="${m.n}"></div>
+                    <div class="member-img-box">
+                        <img src="${m.p}" alt="${m.n}">
+                    </div>
                     <div style="padding: 15px;">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 5px;">${m.n}</h3>
-                        <p style="color: var(--secondary-blue); font-size: 0.85rem; font-weight: bold;">${m.r}</p>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 5px; color: #fff;">${m.n}</h3>
+                        <p style="color: var(--secondary-blue); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">${m.r}</p>
+                        <a href="${m.ig}" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>`;
         });
@@ -372,7 +384,6 @@ dan penegakkan aturan kode etik unit.</p>
             const target = document.getElementById(sectionId);
             if(target) target.classList.add('active');
             
-            // Logika untuk tombol "Selengkapnya" & "Anggota" agar sidebar ikut update
             if (sectionId === 'about') document.querySelectorAll('.nav-item')[1].classList.add('active');
             else if (sectionId === 'members') document.querySelectorAll('.nav-item')[3].classList.add('active');
             else if(element) element.classList.add('active');
